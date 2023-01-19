@@ -1,12 +1,29 @@
 class FormValidators {
-  static String? nameValidation(String value) {
+  static String? fNameValidation(String value) {
     bool hasSpecialCharacters = value.contains(RegExp(r"^[a-zA-Z\s]+$"));
     bool hasNumber = value.contains(RegExp(r"^[a-zA-Z0-9]+$"));
 
     if (value.isEmpty) {
-      return 'Name is required';
+      return 'First name is required';
     } else if (value.length < 4) {
-      return 'Please enter valid name';
+      return 'Please enter valid first name';
+    } else if (!hasSpecialCharacters) {
+      if (hasNumber) {
+        return 'Numbers are not allowed';
+      }
+      return 'Special Characters are not allowed';
+    }
+    return null;
+  }
+
+  static String? lNameValidation(String value) {
+    bool hasSpecialCharacters = value.contains(RegExp(r"^[a-zA-Z\s]+$"));
+    bool hasNumber = value.contains(RegExp(r"^[a-zA-Z0-9]+$"));
+
+    if (value.isEmpty) {
+      return 'Surename is required';
+    } else if (value.length < 3) {
+      return 'Please enter valid surename';
     } else if (!hasSpecialCharacters) {
       if (hasNumber) {
         return 'Numbers are not allowed';
