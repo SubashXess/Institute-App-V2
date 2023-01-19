@@ -144,7 +144,7 @@ class _LoginPageState extends State<LoginPage> {
                               ? Colors.grey.shade300
                               : AppTheme.appThemeColor,
                           size: size,
-                          label:  Text(
+                          label: Text(
                             _phoneController.text.length < 10
                                 ? 'Please enter your number'
                                 : 'Send Code',

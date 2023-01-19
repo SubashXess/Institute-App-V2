@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-
 import '../constants/boxshadow.dart';
 import '../constants/textstyles.dart';
 import '../constants/themes.dart';
