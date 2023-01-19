@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import 'constants/routes.dart';
 
 void main() {
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
       title: 'Institute App V2',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(primarySwatch: Colors.blue),
-      initialRoute: '/loginpage',
+      initialRoute: '/otppage', // otppage  loginpage
       routes: routes,
     );
   }

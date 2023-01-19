@@ -1,12 +1,10 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:institute_app_v2/components/divider.dart';
-import 'package:institute_app_v2/constants/boxshadow.dart';
 import 'package:institute_app_v2/constants/textstyles.dart';
 import 'package:institute_app_v2/constants/themes.dart';
 import 'package:institute_app_v2/widgets/rounded_button_widget.dart';
 import 'package:institute_app_v2/widgets/textform_widget.dart';
-
 import '../constants/dimensions.dart';
 import '../utilities/validators.dart';
 
@@ -141,7 +139,7 @@ class _LoginPageState extends State<LoginPage> {
                         const SizedBox(height: 16.0),
                         RoundedButtonWidget(
                           color: _phoneController.text.length < 10
-                              ? Colors.grey.shade300
+                              ? Colors.grey.shade400
                               : AppTheme.appThemeColor,
                           size: size,
                           label: Text(
@@ -162,6 +160,10 @@ class _LoginPageState extends State<LoginPage> {
                                     setState(() {
                                       _autovalidateMode = false;
                                     });
+                                    Navigator.pushNamed(context, '/otppage',
+                                        arguments: {
+                                          'phone': _phoneController.text.trim()
+                                        });
                                   } else {
                                     setState(() {
                                       _autovalidateMode = true;
@@ -183,6 +185,41 @@ class _LoginPageState extends State<LoginPage> {
                           size: size,
                           icon: 'assets/icons/facebook.svg',
                           label: 'Continue with Facebook',
+                        ),
+                        SizedBox(height: size.height * 0.056),
+                        Text.rich(
+                          textAlign: TextAlign.center,
+                          TextSpan(
+                            style: AppTextStyle.h4TextStyle(
+                                color: Colors.grey.shade400,
+                                fontWeight: FontWeight.w400,
+                                size: 13.0),
+                            children: [
+                              const TextSpan(
+                                  text:
+                                      'By continuing, you agree to Institute\'s'),
+                              TextSpan(
+                                text: ' Terms of Service ',
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {},
+                                style: AppTextStyle.h4TextStyle(
+                                    color: AppTheme.appThemeColor,
+                                    fontWeight: FontWeight.w500,
+                                    size: 13.0),
+                              ),
+                              const TextSpan(
+                                  text: 'acknowledge you\'ve read our'),
+                              TextSpan(
+                                text: ' Privacy Policy',
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () {},
+                                style: AppTextStyle.h4TextStyle(
+                                    color: AppTheme.appThemeColor,
+                                    fontWeight: FontWeight.w500,
+                                    size: 13.0),
+                              ),
+                            ],
+                          ),
                         ),
                       ],
                     ),
