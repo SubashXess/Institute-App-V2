@@ -27,4 +27,5 @@ class AppTextFieldTheme {
 class AppContainerTheme {
   static const Color appContainerGreyTheme = Color(0xFFE7E7E9);
   static const Color appContainerDefaultTheme = Color(0xFFF3F3F6);
+  static const Color appContainerBluishTheme = Color(0xFFE5E7EF);
 }

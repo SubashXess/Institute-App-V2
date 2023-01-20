@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue),
         initialRoute:
-            '/viewer_registration_page', // otppage  loginpage  viewer_registration_page
+            '/dashboard_page', // otppage  loginpage  viewer_registration_page viewer_profile_page  dashboard_page
         routes: routes,
       ),
     );

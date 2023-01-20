@@ -80,12 +80,11 @@ class _ViewerRegistrationPageState extends State<ViewerRegistrationPage> {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text('Some Details'.toUpperCase(),
-                      style: AppTextStyle.h2TextStyle()),
-                  // const SizedBox(height: 10.0),
-                  // Text('Let us know your name so tutors can contact you.',
-                  //     style: AppTextStyle.h4TextStyle(
-                  //         color: AppTextTheme.appTextThemeLight)),
+                  Text('What\'s your name?', style: AppTextStyle.h2TextStyle()),
+                  const SizedBox(height: 10.0),
+                  Text('So that we know how to call you.',
+                      style: AppTextStyle.h4TextStyle(
+                          color: AppTextTheme.appTextThemeLight)),
                   SizedBox(height: size.height * 0.036),
                   TextFormWidget(
                     hint: 'First name',

@@ -210,6 +210,7 @@ class SearchFieldWidget extends StatelessWidget {
     required this.hint,
     this.prefixIcon,
     this.onTap,
+    this.fillColor = AppTextFieldTheme.appTextFieldThemeShade1,
   });
 
   final TextEditingController controller;
@@ -218,6 +219,7 @@ class SearchFieldWidget extends StatelessWidget {
   final VoidCallback? onTap;
   final String hint;
   final Widget? prefixIcon;
+  final Color? fillColor;
 
   @override
   Widget build(BuildContext context) {
@@ -230,7 +232,7 @@ class SearchFieldWidget extends StatelessWidget {
       keyboardType: TextInputType.text,
       decoration: InputDecoration(
         filled: true,
-        fillColor: AppTextFieldTheme.appTextFieldThemeShade1,
+        fillColor: fillColor,
         hintText: hint,
         hintStyle: AppTextStyle.h4TextStyle(
             fontWeight: FontWeight.w400,
