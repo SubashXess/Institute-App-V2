@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:institute_app_v2/screens/tutor_profile_page/tutor_profile_page.dart';
 import 'package:institute_app_v2/screens/viewer_screen/dashboard_page/viewer_dashboard_page.dart';
 import 'package:institute_app_v2/screens/login_page.dart';
 import 'package:institute_app_v2/screens/otp_page.dart';
@@ -10,6 +11,7 @@ import '../screens/viewer_screen/viewer_profile_page/viewer_profilepage.dart';
 final Map<String, WidgetBuilder> routes = {
   '/loginpage': (context) => const LoginPage(),
   '/otppage': (context) => const OTPPage(),
+  '/tutor_profile_page': (context) => const TutorProfilePage(),
 
   ////////////////////////// Viewer Page ////////////////////////////
   '/viewer_registration_page': (context) => const ViewerRegistrationPage(),

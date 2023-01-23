@@ -45,6 +45,7 @@ class DashboardAppBarWidget extends StatelessWidget {
                     splashColor: Colors.transparent,
                     highlightColor: Colors.transparent,
                     onTap: () {
+                      FocusScope.of(context).unfocus();
                       Scaffold.of(context).openDrawer();
                     },
                     child: Container(

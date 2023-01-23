@@ -16,8 +16,6 @@ class _DashboardPageState extends State<DashboardPage> {
   late FocusNode _searchNode;
   late ScrollController _scrollController;
 
-  bool searchOnTap = false;
-
   @override
   void initState() {
     super.initState();
@@ -57,11 +55,7 @@ class _DashboardPageState extends State<DashboardPage> {
                   node: _searchNode,
                   title: 'Home',
                   city: 'Bhubaneswar',
-                  onTapSearch: () {
-                    setState(() {
-                      searchOnTap = true;
-                    });
-                  },
+                  onTapSearch: () {},
                 ),
                 Container(
                   width: size.width,
@@ -85,22 +79,4 @@ class _DashboardPageState extends State<DashboardPage> {
       ),
     );
   }
-
-  // String greetings() {
-  //   final hour = TimeOfDay.now().hour;
-
-  //   if ((hour >= 4) && (hour <= 12)) {
-  //     print('$hour Good morning');
-  //     return 'Good Morning';
-  //   } else if (hour <= 17) {
-  //     print('$hour Good afternoon');
-  //     return 'Good Afternoon';
-  //   } else if (hour <= 20) {
-  //     print('Good evening');
-  //     return 'Good Evening';
-  //   } else {
-  //     print('Good night');
-  //     return 'Good Night';
-  //   }
-  // }
 }

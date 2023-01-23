@@ -4,7 +4,10 @@ import 'package:institute_app_v2/constants/boxshadow.dart';
 import 'package:institute_app_v2/constants/dimensions.dart';
 import 'package:institute_app_v2/constants/textstyles.dart';
 import 'package:institute_app_v2/constants/themes.dart';
+import 'package:institute_app_v2/widgets/rounded_button_widget.dart';
 import 'package:readmore/readmore.dart';
+
+import '../../../components/view_review_contents.dart';
 
 class ViewerVisitTutorProfilePage extends StatefulWidget {
   const ViewerVisitTutorProfilePage({super.key});
@@ -20,6 +23,40 @@ class _ViewerVisitTutorProfilePageState
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
+      // bottomSheet: SafeArea(
+      //   child: Container(
+      //     width: size.width,
+      //     child: Column(
+      //       mainAxisSize: MainAxisSize.min,
+      //       children: [
+      //         Row(
+      //           children: [
+      //             Expanded(
+      //               child: RoundedButtonWidget(
+      //                 size: size,
+      //                 color: AppTheme.appThemeColor,
+      //                 label: Text(
+      //                   'Request a call back',
+      //                   style: AppTextStyle.h4TextStyle(color: Colors.white),
+      //                 ),
+      //               ),
+      //             ),
+      //             Expanded(
+      //               child: RoundedButtonWidget(
+      //                 size: size,
+      //                 color: AppTheme.appThemeColor,
+      //                 label: Text(
+      //                   'Send a message',
+      //                   style: AppTextStyle.h4TextStyle(color: Colors.white),
+      //                 ),
+      //               ),
+      //             ),
+      //           ],
+      //         ),
+      //       ],
+      //     ),
+      //   ),
+      // ),
       body: Container(
         width: size.width,
         child: SafeArea(
@@ -159,6 +196,8 @@ class _ViewerVisitTutorProfilePageState
                         trimMode: TrimMode.Line,
                         trimCollapsedText: ' Show more',
                         trimExpandedText: ' Show less',
+                        style: AppTextStyle.h4TextStyle(
+                            color: AppTextTheme.appTextThemeLight, size: 13.0),
                         lessStyle: AppTextStyle.h4TextStyle(
                             fontWeight: FontWeight.w500,
                             color: AppTheme.appThemeColor),
@@ -169,14 +208,36 @@ class _ViewerVisitTutorProfilePageState
                     ],
                   ),
                 ),
-                PopupMenuButton(
-                  itemBuilder: (context) {
-                    return [
-                      PopupMenuItem(child: Text('One')),
-                      PopupMenuItem(child: Text('Two')),
-                    ];
-                  },
-                )
+                Container(
+                  width: size.width,
+                  padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      const SizedBox(height: 16.0),
+                      Text('Reviews', style: AppTextStyle.h2TextStyle()),
+                      const SizedBox(height: 10.0),
+                      const ViewReviewsContents(
+                        img:
+                            'https://media.istockphoto.com/id/539246041/photo/happy-student-in-class.jpg?s=612x612&w=0&k=20&c=lIyIt9Rq5Ahj140VLYYDB8urF8ss-eqoZVbkAlAsXIk=',
+                        name: 'Johan Perkins',
+                        ratings: 4.5,
+                        createdBy: '1',
+                        content:
+                            'he is a very good personality and very brilliant student. his math and science subject is very well.And they explain science and math like that even a small child can do advanced level math?',
+                      ),
+                      const ViewReviewsContents(
+                        img:
+                            'https://media.istockphoto.com/id/1278973857/photo/smiling-student-guy-preparing-for-exam-at-school.jpg?s=612x612&w=0&k=20&c=mIz_-ZiJgtWAUD5Pc4YpbS8sY9iqaEsCOcB8lez019k=',
+                        name: 'Jitendra kumar',
+                        ratings: 4.0,
+                        createdBy: '2',
+                        content:
+                            'Excellent knowledge in physics you obtained during study in Sainik School would help the aspirant students as well parents a lot as a trustworthy teacher like you..wish you all the best in your future ...',
+                      ),
+                    ],
+                  ),
+                ),
               ],
             ),
           ),
