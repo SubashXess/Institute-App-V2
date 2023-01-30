@@ -5,9 +5,10 @@ import 'package:institute_app_v2/constants/textstyles.dart';
 import 'package:institute_app_v2/constants/themes.dart';
 
 class CourseView extends StatefulWidget {
-  const CourseView({super.key, required this.size});
+  const CourseView({super.key, required this.size, required this.controller});
 
   final Size size;
+  final ScrollController controller;
 
   @override
   State<CourseView> createState() => _CourseViewState();
@@ -23,8 +24,10 @@ class _CourseViewState extends State<CourseView> {
       child: ListView(
         shrinkWrap: true,
         padding: const EdgeInsets.only(left: 16.0, right: 16.0, top: 16.0),
+        physics: const NeverScrollableScrollPhysics(),
+        controller: widget.controller,
         children: List.generate(
-          2,
+          20,
           (index) {
             return Container(
               width: widget.size.width,

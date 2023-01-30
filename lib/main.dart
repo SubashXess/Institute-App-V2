@@ -20,8 +20,7 @@ class MyApp extends StatelessWidget {
         title: 'Institute App V2',
         debugShowCheckedModeBanner: false,
         theme: ThemeData(primarySwatch: Colors.blue),
-        initialRoute:
-            '/tutor_profile_page', // otppage  loginpage  viewer_registration_page viewer_profile_page  dashboard_page  viewer_visit_tutor_page
+        initialRoute: '/tutor_profile_page_v2',
         routes: routes,
       ),
     );

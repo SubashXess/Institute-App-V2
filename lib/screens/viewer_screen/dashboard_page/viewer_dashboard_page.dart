@@ -67,7 +67,15 @@ class _DashboardPageState extends State<DashboardPage> {
                         padding: EdgeInsets.zero,
                         controller: _scrollController,
                         children: List.generate(
-                            5, (index) => TutorCardWidget(size: size)),
+                          5,
+                          (index) => TutorCardWidget(
+                            size: size,
+                            onTap: () {
+                              Navigator.pushNamed(
+                                  context, '/tutor_profile_page');
+                            },
+                          ),
+                        ),
                       ),
                     ],
                   ),

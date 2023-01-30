@@ -7,10 +7,11 @@ import '../../../../constants/themes.dart';
 class TutorCardWidget extends StatelessWidget {
   const TutorCardWidget({
     Key? key,
-    required this.size,
+    required this.size, required this.onTap,
   }) : super(key: key);
 
   final Size size;
+  final VoidCallback onTap;
 
   @override
   Widget build(BuildContext context) {
@@ -25,121 +26,127 @@ class TutorCardWidget extends StatelessWidget {
           AppBoxShadow.s0BoxShadow(color: Colors.black.withOpacity(0.086))
         ],
       ),
-      child: Column(
-        children: [
-          Row(
-            children: [
-              const CircleAvatar(
-                backgroundColor: AppContainerTheme.appContainerBluishTheme,
-                radius: 24.0,
-                child: CircleAvatar(
-                  backgroundColor: Colors.white,
-                  backgroundImage: NetworkImage(
-                      'https://img.freepik.com/premium-photo/teenager-student-girl-yellow-pointing-finger-side_1368-40175.jpg?w=2000'),
-                  radius: 22.0,
+      child: InkWell(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+        onTap: onTap,
+        child: Column(
+          children: [
+            Row(
+              children: [
+                const CircleAvatar(
+                  backgroundColor: AppContainerTheme.appContainerBluishTheme,
+                  radius: 24.0,
+                  child: CircleAvatar(
+                    backgroundColor: Colors.white,
+                    backgroundImage: NetworkImage(
+                        'https://img.freepik.com/premium-photo/teenager-student-girl-yellow-pointing-finger-side_1368-40175.jpg?w=2000'),
+                    radius: 22.0,
+                  ),
                 ),
-              ),
-              const SizedBox(width: 16.0),
-              Expanded(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Mattew Gibson',
-                      style:
-                          AppTextStyle.h3TextStyle(fontWeight: FontWeight.w500),
+                const SizedBox(width: 16.0),
+                Expanded(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        'Mattew Gibson',
+                        style: AppTextStyle.h3TextStyle(
+                            fontWeight: FontWeight.w500),
+                      ),
+                      const SizedBox(height: 4.0),
+                      Text(
+                        'I will share my expertise with the student community where they get a job.',
+                        maxLines: 1,
+                        overflow: TextOverflow.ellipsis,
+                        style: AppTextStyle.h4TextStyle(
+                          color: AppTextTheme.appTextThemeLight,
+                          size: 13.0,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                _buildCardItems(icon: Icons.star_rounded, label: '4.5'),
+                _buildCardItems(icon: Icons.group_rounded, label: '800+'),
+                _buildCardItems(icon: Icons.work_rounded, label: '5 Years'),
+              ],
+            ),
+            const SizedBox(height: 16.0),
+            _rowItems(
+                icon: Icons.location_on_rounded,
+                label: 'Chandrasekharpur, Bhubaneswar, Odisha 751016'),
+            const SizedBox(height: 10.0),
+            _rowItems(
+                icon: Icons.access_time_filled_rounded,
+                label: '8:00 AM - 11:00 AM'),
+            const SizedBox(height: 10.0),
+            _rowItems(
+                icon: Icons.my_library_books_rounded,
+                label: 'Maths, Computers'),
+            const SizedBox(height: 10.0),
+            _rowItems(
+                icon: Icons.menu_book_rounded, label: 'ICSE (6-10), CBSE(6-8)'),
+            const SizedBox(height: 16.0),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Container(),
+                Text(
+                  '${AppUnicode.rupeeUnicode}650/hour',
+                  style: AppTextStyle.h3TextStyle(
+                      color: AppTheme.appThemeColor,
+                      fontWeight: FontWeight.w700,
+                      size: 14.0),
+                ),
+              ],
+            ),
+            const SizedBox(height: 16.0),
+            Row(
+              children: [
+                Expanded(
+                  child: Container(
+                    width: size.width,
+                    height: 36.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.0),
+                      color: Colors.green.shade400,
                     ),
-                    const SizedBox(height: 4.0),
-                    Text(
-                      'I will share my expertise with the student community where they get a job.',
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis,
-                      style: AppTextStyle.h4TextStyle(
-                        color: AppTextTheme.appTextThemeLight,
-                        size: 13.0,
+                    child: Center(
+                      child: Text(
+                        'Request a call',
+                        style: AppTextStyle.h4TextStyle(color: Colors.white),
                       ),
                     ),
-                  ],
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              _buildCardItems(icon: Icons.star_rounded, label: '4.5'),
-              _buildCardItems(icon: Icons.group_rounded, label: '800+'),
-              _buildCardItems(icon: Icons.work_rounded, label: '5 Years'),
-            ],
-          ),
-          const SizedBox(height: 16.0),
-          _rowItems(
-              icon: Icons.location_on_rounded,
-              label: 'Chandrasekharpur, Bhubaneswar, Odisha 751016'),
-          const SizedBox(height: 10.0),
-          _rowItems(
-              icon: Icons.access_time_filled_rounded,
-              label: '8:00 AM - 11:00 AM'),
-          const SizedBox(height: 10.0),
-          _rowItems(
-              icon: Icons.my_library_books_rounded, label: 'Maths, Computers'),
-          const SizedBox(height: 10.0),
-          _rowItems(
-              icon: Icons.menu_book_rounded, label: 'ICSE (6-10), CBSE(6-8)'),
-          const SizedBox(height: 16.0),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Container(),
-              Text(
-                '${AppUnicode.rupeeUnicode}650/hour',
-                style: AppTextStyle.h3TextStyle(
-                    color: AppTheme.appThemeColor,
-                    fontWeight: FontWeight.w700,
-                    size: 14.0),
-              ),
-            ],
-          ),
-          const SizedBox(height: 16.0),
-          Row(
-            children: [
-              Expanded(
-                child: Container(
-                  width: size.width,
-                  height: 36.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.0),
-                    color: Colors.green.shade400,
                   ),
-                  child: Center(
-                    child: Text(
-                      'Request a call',
-                      style: AppTextStyle.h4TextStyle(color: Colors.white),
+                ),
+                const SizedBox(width: 16.0),
+                Expanded(
+                  child: Container(
+                    width: size.width,
+                    height: 36.0,
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(12.0),
+                      color: Colors.amber.shade400,
+                    ),
+                    child: Center(
+                      child: Text(
+                        'Send message',
+                        style: AppTextStyle.h4TextStyle(color: Colors.white),
+                      ),
                     ),
                   ),
                 ),
-              ),
-              const SizedBox(width: 16.0),
-              Expanded(
-                child: Container(
-                  width: size.width,
-                  height: 36.0,
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(12.0),
-                    color: Colors.amber.shade400,
-                  ),
-                  child: Center(
-                    child: Text(
-                      'Send message',
-                      style: AppTextStyle.h4TextStyle(color: Colors.white),
-                    ),
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
